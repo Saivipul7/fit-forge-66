@@ -20,7 +20,7 @@ const UserInputScreen = () => {
     age: '',
     weight: '',
     height: '',
-    fitnessGoal: '' as FitnessGoal,
+    fitnessGoal: '' as FitnessGoal | '',
   });
   
   const [errors, setErrors] = useState({
@@ -48,7 +48,7 @@ const UserInputScreen = () => {
       age: formData.age === '' || parseInt(formData.age) <= 0 || parseInt(formData.age) > 120,
       weight: formData.weight === '' || parseFloat(formData.weight) <= 0,
       height: formData.height === '' || parseFloat(formData.height) <= 0,
-      fitnessGoal: formData.fitnessGoal === '',
+      fitnessGoal: !formData.fitnessGoal,
     };
     
     setErrors(newErrors);
